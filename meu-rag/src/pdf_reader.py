@@ -20,28 +20,17 @@ def read_pdf(pdf_path):
     document.close()
 
     return pages
- 
-
-
-
-
 
 
 project_root = Path(__file__).resolve().parent.parent
 
 pdf_path = project_root / "data" / "documents" / "Testando_protótipo.pdf"
 
-pages = read_path(pdf_path)
+pages = read_pdf(pdf_path)
 
-print(f"Total de páginas: ")
+print(f"Total de páginas: {len(pages)}")
 
-
-
-print(f"PDF: {pdf_path}")
-print(F"Total de páginas: {len(document)}")
-
-for page_number, page in enumerate(document, start=1): #percorremos cada página 
-    text = page.get_text() # Aqui extraimos o trecho da página
-
-    print(f"/n--- Página {page_number} ---")
-    print(text)
+for page in pages:
+    print(f"\n--- Página {page['page']}")
+    print(f"fonte: {page['source']}")
+    print(page["text"])
