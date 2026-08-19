@@ -33,4 +33,4 @@ def chunk_text(
 
                 start += (chunk_size + chunk_overlap)
 
-            return chunks
+            return chunks 
