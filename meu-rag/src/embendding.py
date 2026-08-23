@@ -34,7 +34,7 @@ if __name__ == "__main__":
     chunks = chunk_text(pages, chunk_size=300, chunk_overlap=50)
     chunk_with_embeddings = generate_embedding(chunks)
 
-    print(f"Total de chunks processados: {len(chunks_with_embeddings)}")
+    print(f"Total de chunks processados: {len(chunk_with_embeddings)}")
 
     first_chunk = chunk_with_embeddings[0]
     print(f"\n--- Chunk Vetorizado ---")
