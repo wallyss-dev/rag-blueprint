@@ -22,3 +22,23 @@ def generate_embedding(chunks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return chunks
 
 
+if __name__ == "__main__":
+    from pdf_reader import read_pdf
+    from chunking import chunk_text
+    from pathlib import Path 
+
+    project_root = Path(__file__).resolve().parent.parent 
+    pdf_path = project_root / "data" / "document" / "Testando_protótipo"
+
+    pages = read_pdf(pdf_path)
+    chunks = chunk_text(pages, chunk_size=300, chunk_overlap=50)
+    chunk_with_embeddings = generate_embedding(chunks)
+
+    print(f"Total de chunks processados: {len(chunks_with_embeddings)}")
+
+    first_chunk = chunk_with_embeddings[0]
+    print(f"\n--- Chunk Vetorizado ---")
+    print(f"ID: {first_chunk['chunk_id']}")
+    print(f"Texto: {first_chunk['text'][:100]}")
+    print(f"Dimensõesdo do vetor: {len(first_chunk['embedding'])}")
+    print(f"Primeiros 5 números do vetor: {first_chunk['enbedding'][:5]}")
