@@ -1,0 +1,21 @@
+# Ambientes Virtuais
+venv/
+env/
+.venv/
+
+# Arquivos de Cache e Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Variáveis de Ambiente (NUNCA subir pro GitHub)
+.env
+
+# Pastas de dados locais (opcional, dependendo de como você quer o repositório)
+data/documents/*
+!data/documents/.gitkeep
+
+# Streamlit e FAISS
+.streamlit/
+*.faiss
+*.index
